@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.zack.where.dao.UserDao">
+    <select id="countAll" resultType="int">
+        select count(*) c from user;
+    </select>
+    
+    
+    <insert id="insertUser"  parameterType="User" useGeneratedKeys="true" keyProperty="id">
+ 		insert into user
+ 		(id,mac_address,create_time,last_time,phone_number)
+ 		values
+ 		(#{id},#{mac_address},#{create_time},#{last_time},#{phone_number})
+    </insert>
+    
+    
+    <select id="queryUserById"  parameterType="Integer" resultType="User">
+ 		select * from user where id=#{id} 
+ 	</select>
+</mapper>
